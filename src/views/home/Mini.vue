@@ -22,6 +22,6 @@ export default {
   height: 100vw;
   background: url("https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture")
     no-repeat;
-  background-size: contain;
+  background-size: percentage;
 }
 </style>

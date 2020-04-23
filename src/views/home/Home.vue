@@ -19,17 +19,17 @@ export default {
     Search
   },
   data() {
-    return {
-
-    };
+    return {};
   },
-  methods: {
-
-  }
+  methods: {}
 };
 </script>
 <style scoped lang="scss">
 .home {
-
+  height: 100%;
+  overflow: auto;
+  background: url("https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture")
+    no-repeat;
+  background-size: percentage;
 }
 </style>

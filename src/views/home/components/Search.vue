@@ -28,7 +28,7 @@
         @keyup.enter.native="search"
       />
     </div>
-    <Button type="primary" icon="ios-search" class="search-btn">
+    <Button type="primary" icon="ios-search" class="search-btn" @click="search">
       SEARCH
     </Button>
   </div>
@@ -69,7 +69,7 @@ export default {
     ClickSearchType(val) {
       this.searchType = val;
     },
-    search(e) {
+    search() {
       switch (this.searchType) {
         case "baidu":
           window.open(`https://www.baidu.com/s?ie=UTF-8&wd=${this.inputValue}`);
@@ -104,6 +104,7 @@ export default {
     width: 150px;
     height: 50px;
     margin-right: 10px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.7);
     img {
       height: 100%;
@@ -114,7 +115,7 @@ export default {
     position: relative;
     .est_switch {
       position: absolute;
-      bottom: 48.5px;
+      bottom: 50px;
       display: flex;
       .est-selected {
         position: relative;
@@ -127,7 +128,6 @@ export default {
         background: rgba(255, 255, 255, 0.8);
         background: #ececec;
         border-top-left-radius: 5px;
-        border: 1.5px solid #ececec;
         z-index: 1;
         margin-right: 18px;
         span {
@@ -145,10 +145,8 @@ export default {
           position: absolute;
           transform: skewX(20deg);
           background: #ececec;
-          border-right: 1.5px solid #ececec;
-          border-top: 1.5px solid #ececec;
           border-top-right-radius: 12px;
-          top: -1.5px;
+          top: 0px;
           right: -20px;
         }
       }
@@ -174,18 +172,18 @@ export default {
       /deep/input {
         height: 100%;
         font-size: 18px;
-        border: 1.5px solid #ececec;
+        border: none;
         border-top-right-radius: 0;
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
         &:hover {
-          border: 1.5px solid #ececec;
+          border: none;
         }
       }
       /deep/.ivu-input:focus {
         outline: none;
         box-shadow: none;
-        border: 1.5px solid #ececec;
+        border: none;
       }
     }
   }

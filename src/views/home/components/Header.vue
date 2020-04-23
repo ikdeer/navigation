@@ -2,7 +2,7 @@
   <div class="header">
     <div class="content">
       <div class="icon" @click="goHome">
-        <img src="~_img/home/logo.png" alt="" />
+<!--        <img src="~_img/home/logo.png" alt="" />-->
       </div>
       <div class="tab">
         <div :class="{ item: true, active: isTab }" @click="goHome">首页</div>
@@ -174,7 +174,7 @@ export default {
     }
     .time {
       margin-left: 30px;
-      color: #515a6e;
+      color: #666666;
       span {
         margin: 2px;
       }
