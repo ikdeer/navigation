@@ -100,6 +100,7 @@ export default {
   justify-content: center;
   align-items: flex-end;
   height: 180px;
+  margin-bottom: 100px;
   .img {
     width: 150px;
     height: 50px;

@@ -2,7 +2,7 @@
   <div class="header">
     <div class="content">
       <div class="icon" @click="goHome">
-<!--        <img src="~_img/home/logo.png" alt="" />-->
+        <img src="~_img/home/logo.png" alt="" />
       </div>
       <div class="tab">
         <div :class="{ item: true, active: isTab }" @click="goHome">首页</div>
@@ -45,7 +45,7 @@ export default {
         curMinute: "",
         curSec: ""
       },
-      marqueeInfo: "开心快乐每一天！"
+      marqueeInfo: ""
     };
   },
   computed: {
@@ -102,9 +102,13 @@ export default {
       }, 1000);
     },
     getMarqueeInfo() {
-      marqueeInfo().then(res => {
-        this.marqueeInfo = `${res.hitokoto} --- 《${res.from}》`
-      });
+      marqueeInfo()
+        .then(res => {
+          this.marqueeInfo = `${res.hitokoto}--《${res.from}》`;
+        })
+        .catch(() => {
+          this.marqueeInfo = "开心快乐每一天！";
+        });
     }
   },
   filters: {
@@ -137,7 +141,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   height: 60px;
   box-shadow: rgba(228, 228, 228, 0.5) 0px 2px 3px;
   .content {
@@ -149,10 +153,10 @@ export default {
     align-items: center;
 
     .icon {
-      height: 100%;
+      padding-top: 6px;
       img {
-        width: 229px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
       }
     }
     .tab {

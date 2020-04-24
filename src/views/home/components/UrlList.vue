@@ -19,11 +19,11 @@
           <i :class="item.icon"></i>
           <span>{{ item.label }}</span>
         </div>
-        <Card v-for="ins in item.list" :key="ins.label" class="list">
-          <a :href="ins.link" target="_blank">
-            <div>{{ ins.label }}</div>
-          </a>
-        </Card>
+        <div class="card">
+          <div v-for="ins in item.list" :key="ins.label" class="list">
+            <a :href="ins.link" target="_blank">{{ ins.label }}</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -847,11 +847,16 @@ export default {
 
 <style lang="scss" scoped>
 .url-list {
-  width: 1200px;
-  margin: 0 auto;
-  margin-top: 60px;
-  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.96);
+  position: relative;
+  box-sizing: border-box;
   .frequently {
+    width: 1200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    top: -45px;
     display: flex;
     justify-content: center;
     .frequently-card {
@@ -875,20 +880,24 @@ export default {
   }
 
   .site {
-    margin-top: 30px;
-
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
     .site-classify {
-      width: 100%;
-      padding: 20px;
-      margin-bottom: 10px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.9);
-
+      box-sizing: border-box;
+      width: 400px;
+      padding: 10px;
+      &:hover {
+        transition: box-shadow 0.5s;
+        box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.5);
+      }
       .classify-title {
         height: 40px;
         line-height: 40px;
         font-weight: 600;
-        font-size: 22px;
+        font-size: 18px;
         border-bottom: 1px dashed #999999;
         margin-bottom: 10px;
         color: #2d8cf0;
@@ -897,16 +906,18 @@ export default {
         }
       }
 
-      .list {
-        display: inline-block;
-        margin: 5px;
-        cursor: pointer;
-        width: 183px;
-        height: 60px;
-        a,
-        /deep/.ivu-card-body {
-          font-size: 16px;
-          color: #666666;
+      .card {
+        .list {
+          display: inline-block;
+          width: 126px;
+          height: 30px;
+          a {
+            color: #666666;
+            &:hover {
+              color: #19be6b;
+              text-decoration: underline;
+            }
+          }
         }
       }
     }
